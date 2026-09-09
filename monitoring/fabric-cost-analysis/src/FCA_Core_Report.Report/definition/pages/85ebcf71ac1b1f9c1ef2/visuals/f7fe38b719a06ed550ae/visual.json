@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "f7fe38b719a06ed550ae",
   "position": {
-    "x": 13.752877973906369,
-    "y": 198.43438219493476,
+    "x": 14.187192118226601,
+    "y": 198.62068965517241,
     "z": 0,
-    "height": 81.534919416730617,
-    "width": 203.34612432847274,
+    "height": 77.142857142857139,
+    "width": 203.05418719211823,
     "tabOrder": 19000
   },
   "visual": {
@@ -56,24 +56,10 @@
       "data": [
         {
           "properties": {
-            "startDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2025-10-05T00:00:00'"
-                }
-              }
-            },
-            "endDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2026-03-12T00:00:00'"
-                }
-              }
-            },
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Between'"
+                  "Value": "'RelativeDatePicker'"
                 }
               }
             }
@@ -129,45 +115,89 @@
                 "Where": [
                   {
                     "Condition": {
-                      "And": {
-                        "Left": {
-                          "Comparison": {
-                            "ComparisonKind": 2,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "c"
-                                  }
-                                },
-                                "Property": "Date"
+                      "Between": {
+                        "Expression": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "c"
                               }
                             },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2025-10-05T00:00:00'"
-                              }
-                            }
+                            "Property": "Date"
                           }
                         },
-                        "Right": {
-                          "Comparison": {
-                            "ComparisonKind": 3,
-                            "Left": {
-                              "Column": {
+                        "LowerBound": {
+                          "DateSpan": {
+                            "Expression": {
+                              "DateAdd": {
                                 "Expression": {
-                                  "SourceRef": {
-                                    "Source": "c"
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "DateAdd": {
+                                        "Expression": {
+                                          "ScopedEval": {
+                                            "Expression": {
+                                              "Aggregation": {
+                                                "Expression": {
+                                                  "Column": {
+                                                    "Expression": {
+                                                      "SourceRef": {
+                                                        "Source": "c"
+                                                      }
+                                                    },
+                                                    "Property": "Date"
+                                                  }
+                                                },
+                                                "Function": 4
+                                              }
+                                            },
+                                            "Scope": []
+                                          }
+                                        },
+                                        "Amount": -1,
+                                        "TimeUnit": 2
+                                      }
+                                    },
+                                    "Amount": 1,
+                                    "TimeUnit": 0
                                   }
                                 },
-                                "Property": "Date"
+                                "Amount": -1,
+                                "TimeUnit": 2
                               }
                             },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2026-03-13T00:00:00'"
+                            "TimeUnit": 0
+                          }
+                        },
+                        "UpperBound": {
+                          "DateSpan": {
+                            "Expression": {
+                              "DateAdd": {
+                                "Expression": {
+                                  "ScopedEval": {
+                                    "Expression": {
+                                      "Aggregation": {
+                                        "Expression": {
+                                          "Column": {
+                                            "Expression": {
+                                              "SourceRef": {
+                                                "Source": "c"
+                                              }
+                                            },
+                                            "Property": "Date"
+                                          }
+                                        },
+                                        "Function": 4
+                                      }
+                                    },
+                                    "Scope": []
+                                  }
+                                },
+                                "Amount": -1,
+                                "TimeUnit": 2
                               }
-                            }
+                            },
+                            "TimeUnit": 0
                           }
                         }
                       }
@@ -324,6 +354,32 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dateRangeText": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "relativeText": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "b70cd6240bc561506a37",
   "position": {
     "x": 12.442657716463813,
     "y": 283.98825344105762,
-    "z": 20002,
+    "z": 22000,
     "height": 80.552570990023014,
     "width": 203.34612432847274,
-    "tabOrder": 20001
+    "tabOrder": 21000
   },
   "visual": {
     "visualType": "slicer",
@@ -126,7 +126,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ressource Group'"
+                  "Value": "'Resource Group'"
                 }
               }
             }

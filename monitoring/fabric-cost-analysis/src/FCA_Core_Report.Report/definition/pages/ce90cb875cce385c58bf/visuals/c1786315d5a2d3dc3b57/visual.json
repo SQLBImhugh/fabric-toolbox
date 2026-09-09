@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c1786315d5a2d3dc3b57",
   "position": {
     "x": 697.832512315271,
@@ -38,15 +38,32 @@
                       "Entity": "fca"
                     }
                   },
-                  "Property": "#UsedCapacity"
+                  "Property": "#ProvisionedCapacity"
                 }
               },
-              "queryRef": "fca.#UsedCapacity",
-              "nativeQueryRef": "Used Capacity",
-              "displayName": "Used Capacity"
+              "queryRef": "fca.#ProvisionedCapacity",
+              "nativeQueryRef": "Provisioned capacity",
+              "displayName": "Provisioned capacity"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fca"
+                  }
+                },
+                "Property": "#ProvisionedCapacity"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {
@@ -70,7 +87,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "440.864773035206D"
+                  "Value": "365.67672126029845D"
                 }
               }
             }
@@ -138,6 +155,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
                 }
               }
             }
