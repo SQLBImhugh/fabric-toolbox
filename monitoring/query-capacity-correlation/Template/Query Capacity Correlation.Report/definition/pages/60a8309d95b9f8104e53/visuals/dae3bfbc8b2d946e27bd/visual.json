@@ -66,7 +66,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Time range (default: latest 30 days)'"
+                  "Value": "'Time range (default: latest seven days)'"
                 }
               }
             }
@@ -226,7 +226,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Select any hourly range within the latest 30 days. Queries are included when their execution interval overlaps the selected range.'"
+                  "Value": "'Select any hourly range within the latest seven days. Queries are included when their execution interval overlaps the selected range.'"
                 }
               }
             }

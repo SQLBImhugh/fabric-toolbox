@@ -1,4 +1,4 @@
-/// Capacity utilization imported for each hour in the latest 30-day Capacity Metrics range.
+/// Capacity utilization imported for each hour in the latest seven-day Capacity Metrics range.
 table 'Capacity Hour'
 	lineageTag: b72d58ba-cc87-45e5-aea6-63db57becbc7
 
@@ -30,14 +30,14 @@ table 'Capacity Hour'
 				                "EVALUATE
 				                SELECTCOLUMNS(
 				                    SUMMARIZECOLUMNS(
-				                        'Usage Summary (Last 30 days)'[Timestamp],
+				                        'Usage Summary (Last 7 days)'[Timestamp],
 				                        TREATAS(
 				                            {""{{CAPACITY_ID}}""},
-				                            'Usage Summary (Last 30 days)'[Capacity Id]
+				                            'Usage Summary (Last 7 days)'[Capacity Id]
 				                        ),
-				                        ""Average CU %"", MAX('Usage Summary (Last 30 days)'[Average CU %])
+				                        ""Average CU %"", MAX('Usage Summary (Last 7 days)'[Average CU %])
 				                    ),
-				                    ""CapacityTime"", 'Usage Summary (Last 30 days)'[Timestamp],
+				                    ""CapacityTime"", 'Usage Summary (Last 7 days)'[Timestamp],
 				                    ""CapacityValue"", [Average CU %]
 				                )",
 				            Implementation = "2.0"

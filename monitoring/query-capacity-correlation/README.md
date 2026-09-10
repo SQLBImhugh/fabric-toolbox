@@ -10,7 +10,7 @@ credentials.
 
 ## What the report shows
 
-- Capacity utilization by hour for the latest 30 days.
+- Capacity utilization by hour for the latest seven days.
 - Queries active during the selected hour or time range.
 - Query duration, CPU, user, status, scan volume, and SQL text.
 - Warehouse, item type, query hash, and distributed statement ID.
@@ -143,7 +143,9 @@ rerun the script with its exact **Workspace** value.
 
 Confirm that the signed-in account can access the workspace and query
 `queryinsights.exec_requests_history`. Query Insights retains 30 days of
-history, excludes system queries, and can take up to 15 minutes to show a
+history, while the Capacity Metrics source used by this report exposes the
+latest seven days. The usable correlation period is their overlap. Query
+Insights excludes system queries and can take up to 15 minutes to show a
 completed query.
 
 ### Capacity discovery is ambiguous

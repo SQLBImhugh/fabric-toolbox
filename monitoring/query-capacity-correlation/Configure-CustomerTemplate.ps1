@@ -361,10 +361,10 @@ function New-HourWindowsM {
 				    EndHour = DateTime.From(
 				        Date.AddDays(Date.From(UtcNow), 1)
 				    ) + #duration(0, 14, 0, 0),
-				    StartHour = EndHour - #duration(34, 0, 0, 0),
+				    StartHour = EndHour - #duration(9, 0, 0, 0),
 				    Hours = List.DateTimes(
 				        StartHour,
-				        817,
+				        217,
 				        #duration(0, 1, 0, 0)
 				    ),
 				    Source = Table.FromList(
@@ -409,6 +409,10 @@ $warehouses = @(
         -Token $fabricToken
 )
 
+if ($warehouses.Count -eq 0) {
+    throw "No accessible Warehouses matched the requested configuration."
+}
+
 $requiredColumns = "WarehouseName", "WarehouseItemId", "SqlEndpoint"
 foreach ($column in $requiredColumns) {
     if (-not $warehouses -or -not ($warehouses[0].PSObject.Properties.Name -contains $column)) {
@@ -425,10 +429,6 @@ $warehouses = @(
         } |
         Sort-Object WorkspaceName, WarehouseName, WarehouseItemId -Unique
 )
-
-if ($warehouses.Count -eq 0) {
-    throw "No accessible Warehouses matched the requested configuration."
-}
 
 foreach ($warehouse in $warehouses) {
     if ($warehouse.WarehouseItemId -notmatch
@@ -460,7 +460,7 @@ $executionM = New-CombinedWarehouseM `
 $hourWindowsM = New-HourWindowsM
 
 $replacements = [ordered]@{
-    "{{CAPACITY_ID}}" = $capacity.Id
+    "{{CAPACITY_ID}}" = $capacity.Id.ToUpperInvariant()
     "{{CAPACITY_METRICS_ENDPOINT}}" = $capacityEndpoint
     "{{CAPACITY_METRICS_MODEL}}" = $CapacityMetricsModel.Replace('"', '""')
     "{{QUERY_EXECUTIONS_M}}" = $executionM

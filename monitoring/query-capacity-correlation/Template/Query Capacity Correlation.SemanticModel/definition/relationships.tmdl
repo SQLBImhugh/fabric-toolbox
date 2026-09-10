@@ -310,22 +310,6 @@ relationship 2e4b014e-5009-4b24-b420-d95a274e7c41
 	fromColumn: 'Usage Summary (Last 7 days)'.'Capacity Id'
 	toColumn: Capacities.'Uppercase capacity Id'
 
-relationship c563ca9d-2c1c-4ab9-9535-2bcb3ad4d0f3
-	fromColumn: 'Usage Operation (Last 14 days)'.'Capacity Id'
-	toColumn: Capacities.'Uppercase capacity Id'
-
-relationship a7fe6228-e49c-415a-a36a-71e550508315
-	fromColumn: 'Usage Summary (Last 14 days)'.'Capacity Id'
-	toColumn: Capacities.'Uppercase capacity Id'
-
-relationship 9c5ad2fb-ec42-4208-bc8e-a21966653e18
-	fromColumn: 'Usage Operation (Last 30 days)'.'Capacity Id'
-	toColumn: Capacities.'Uppercase capacity Id'
-
-relationship 91d996b8-345b-4ffd-b187-b245a3fd5bf6
-	fromColumn: 'Usage Summary (Last 30 days)'.'Capacity Id'
-	toColumn: Capacities.'Uppercase capacity Id'
-
 relationship cdf8fd2e-9a04-4a87-9624-59480a8a221b
 	fromColumn: 'Surge Protection By Day'.'Capacity Id'
 	toColumn: Capacities.'Uppercase capacity Id'

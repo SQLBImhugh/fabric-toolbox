@@ -140,6 +140,21 @@ try {
         -Actual $workspaceSettings.CapacityName `
         -Expected "Customer Capacity" `
         -Message "Capacity name discovery wasn't persisted."
+    $capacityHourText = Get-Content -Raw -Encoding UTF8 -LiteralPath (
+        Join-Path $namedOutput (
+            "Query Capacity Correlation.SemanticModel\definition\tables\" +
+            "Capacity Hour.tmdl"
+        )
+    )
+    Assert-True `
+        -Condition ($capacityHourText -match $capacityId.ToUpperInvariant()) `
+        -Message "Capacity Metrics filtering didn't use the uppercase capacity ID."
+    Assert-True `
+        -Condition (
+            $capacityHourText -match
+                [regex]::Escape("Usage Summary (Last 7 days)")
+        ) `
+        -Message "Capacity Metrics filtering isn't using the supported seven-day table."
 
     $tmdlFiles = Get-ChildItem -LiteralPath $namedOutput -Recurse -Filter *.tmdl
     $endpointMatches = @(

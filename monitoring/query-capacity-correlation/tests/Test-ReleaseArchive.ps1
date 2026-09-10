@@ -98,6 +98,16 @@ function Test-GeneratedProject {
             "Query Insights statement identifiers must not participate in " +
             "semantic-model relationships."
         )
+    Assert-True `
+        -Condition (
+            -not (Test-Path -LiteralPath (
+                Join-Path $Path (
+                    "Query Capacity Correlation.SemanticModel\definition\" +
+                    "tables\Usage Summary (Last 30 days).tmdl"
+                )
+            ))
+        ) `
+        -Message "The package contains an unsupported 30-day Capacity Metrics table."
 }
 
 function Get-RelativeFileMap {

@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Explore 30 days of capacity utilization. Select a point marker to see the warehouse queries for that hour; 0 means none were recorded.",
+                    "value": "Explore seven days of capacity utilization. Select a point marker to see the warehouse queries for that hour; 0 means none were recorded.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "14px",
